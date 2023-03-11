@@ -1,16 +1,278 @@
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li,
-p {
-  margin: 0;
-  padding: 0;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+  box-sizing: border-box;
+  overflow: auto;
+  
 }
-a {
-  color: inherit;
-  text-decoration: none;
+
+:root {
+  --white: #ffffff;
+  --black: #000000;
+}
+
+body,
+.App {
+  font-family: Calibri;
+  overflow: hidden;
+  font-size: 16px;
+  background-color: white;
+}
+
+button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  transition: background-color 0.3s ease-in-out;
+}
+button:hover {
+  color: rgb(255, 255, 255);
+  background-color: #07343f;
+
+}
+
+#title_bar {
+  display: flex;
+  background-color: var(--white);
+  color: var(--black);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px;
+  border-bottom: 2px solid #a2a4a5da;
+  /* position: fixed; */
+}
+
+#center_text {
+  text-align: center !important;
+  flex: auto;
+
+}
+#subheading {
+  color: #8e8585;
+  font-weight: bold;
+}
+#hide_sidebar{
+  font-size: 50px;
+  padding: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  background-color: transparent;
+}
+#dark_mode {
+  display: none;
+}
+
+#hide_sidebar:hover {
+  display: flex;
+  color: white;
+  background-color: #07343f;
+  margin-left: 5px;
+}
+
+#container {
+  display: flex;
+  /* height: 100vh; */
+}
+
+
+#sidebar {
+  display: flex;
+  background-color: var(--white);
+  color: var(--black);
+  flex-direction: column;
+  flex: 1;
+  border-right: 2px solid #0d0000;
+}
+#sidebar.hide {
+  display: none;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #a2a4a5da;
+}
+.sidebar-header button {
+  font-size: 50px;
+  color: rgb(12, 58, 71);
+  padding: 20px;
+  height: 100%;
+}
+#add:hover{
+  color: white;
+  background-color: #07343f;
+
+}
+
+.sidebar-notes {
+  border-right: 1px solid #a2a4a5da;
+  overflow-y: scroll;
+  height: 100vh;
+}
+.sidebar-header h1 {
+  margin: 0;
+  padding: 20px;
+}
+
+.sidebar-note {
+  padding: 25px;
+  cursor: pointer;
+}
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar-note button {
+  color: crimson;
+}
+.sidebar-note p {
+  margin: 10px 0;
+}
+.sidebar-note small {
+  display: block;
+  color: #0c0000;
+}
+
+.sidebar-note:hover {
+  background: #ddd;
+}
+.sidebar-note.active,
+.sidebar-note.active small {
+  background:#3f7684;
+  color: white;
+}
+
+.body {
+  display: flex;
+  background-color: var(--white);
+  color: var(--black);
+  flex-direction: column;
+  flex: 3;
+  height: 100%;
+}
+
+.body-note-edit {
+  flex: 3;
+  position: relative;
+}
+
+.no-active-note {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  color: #0a0000;
+  background-color: var(--white);
+}
+
+.body-note-edit input {
+  display: block;
+  border: none;
+  margin-bottom: 20px;
+  height: 100%;
+  resize: none;
+}
+
+#body-header {
+  display: flex;
+  justify-content: space-between;
+}
+#body-title {
+  display: inline-block;
+  margin: 0;
+  height: 100%;
+}
+#body-title-input {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 20px;
+  margin: auto;
+  font-weight: bold;
+}
+#body-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+#body-buttons button {
+  font-size: 25px;
+  margin-left: 10px;
+}
+#save_button {
+  font-style: oblique;
+  font-weight: bold;
+  color: var(--black);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#save_button:hover {
+  color: white;
+  background-color: #07343f;
+}
+
+#edit_button {
+  font-style: oblique;
+  font-weight: bold;
+  color: var(--black);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#edit_button:hover {
+  color: white;
+  background-color: #07343f;
+}
+
+
+#delete_button {
+  font-style: oblique;
+  font-weight: bold;
+  color: var(--black);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+#delete_button:hover {
+  color: white;
+  background-color: #07343f;
+}
+
+#body-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.ql-toolbar.ql-snow .ql-picker-label {
+  color: var(--black);
+}
+
+.ql-toolbar {
+  border-top: 1.5px solid #000000da !important;
+  border-bottom: 1px solid #a2a4a5da !important;
+}
+
+.ql-fill {
+  fill: var(--black) !important;
+}
+.ql-stroke {
+  stroke: var(--black) !important;
+}
+.quill-container {
+  border: none !important;
+}
+
+#date {
+  margin-left: 10px;
+  padding: 0px;
+  font-size: 20px;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: monospace;
 }
